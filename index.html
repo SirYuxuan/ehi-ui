@@ -5,9 +5,14 @@
     <title>Demo</title>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/form.css">
+    <style>
+        .form{
+            width: 1000px;text-align: center;margin: 100px auto auto;
+        }
+    </style>
 </head>
 <body>
-<div class="form" style="width: 1000px;text-align: center;margin: 100px auto auto;">
+<div class="form">
     <button>测试</button>
     <button yxu-filter="test" class="yxu-btn-dl">测试</button>
     <button yxu-filter="test1" class="yxu-btn-info">测试</button>
@@ -19,7 +24,9 @@
 </div>
 <script src="./js/yxui.js"></script>
 <script>
-    yxui.useModule(['form'], () => {
+    //开启调试日志
+    yxui.setDebug(true)
+    yxui.useModule(['form','ss'], () => {
         let form = yxui.form;
         form.render({el: '.form'})
         form.on(function (data) {
