@@ -1,0 +1,108 @@
+.yxu-input {
+    height: 32px;
+    line-height: 1.5;
+    padding: 4px 7px;
+    font-size: 12px;
+    border: 1px solid #d7dde4;
+    border-radius: 4px;
+    color: #657180;
+    background-color: #fff;
+    background-image: none;
+    cursor: text;
+    -webkit-transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
+    transition: border .2s ease-in-out, background .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.yxu-input:hover, .yxu-input:focus {
+    border-color: #5cadff;
+    box-shadow: 0 0 5px rgba(92, 173, 255, .6);
+    -moz-box-shadow: 0 0 5px rgba(92, 173, 255, .6);
+    -webkit-box-shadow: 0 0 5px rgba(92, 173, 255, .6);
+}
+
+.yxu-btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid #d7dde4;
+    white-space: nowrap;
+    line-height: 1.5;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    padding: 6px 15px;
+    font-size: 12px;
+    border-radius: 4px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: color .2s linear, background-color .2s linear, border .2s linear;
+    transition: color .2s linear, background-color .2s linear, border .2s linear;
+    color: #657180;
+    background-color: #f7f7f7;
+}
+.yxu-btn:hover {
+    border: 1px solid rgb(58, 156, 255);
+    color: rgb(58, 156, 255);
+}
+.yxu-btn-circle{
+    border-radius: 32px;
+}
+.yxu-btn-dl{
+    border: 1px dashed #d7dde4;
+}
+.yxu-btn-dl:hover{
+    border: 1px dashed #2db7f5;
+}
+.yxu-btn-info {
+    color: #fff;
+    background-color: #2db7f5;
+    border-color: #2db7f5;
+}
+
+.yxu-btn-info:hover {
+    color: #fff;
+    background-color: #57c5f7;
+    border-color: #57c5f7
+}
+
+.yxu-btn-success {
+    color: #fff;
+    background-color: #0c6;
+    border-color: #0c6;
+}
+
+.yxu-btn-success:hover {
+    color: #fff;
+    background-color: #33d685;
+    border-color: #33d685
+}
+
+.yxu-btn-warn {
+    color: #fff;
+    background-color: #f90;
+    border-color: #f90;
+}
+
+.yxu-btn-warn:hover {
+    color: #fff;
+    background-color: #ffad33;
+    border-color: #ffad33
+}
+
+.yxu-btn-error {
+    color: #fff;
+    background-color: #f30;
+    border-color: #f30;
+}
+
+.yxu-btn-error:hover {
+    color: #fff;
+    background-color: #ff5c33;
+    border-color: #ff5c33
+}
