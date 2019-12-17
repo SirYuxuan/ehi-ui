@@ -5,33 +5,36 @@
     <title>Demo</title>
     <link rel="stylesheet" href="./dist/style/main.css">
     <style>
-        .form{
-            width: 1000px;text-align: center;margin: 100px auto auto;
+        .form {
+            width: 1000px;
+            text-align: center;
+            margin: 100px auto auto;
         }
     </style>
 </head>
 <body>
 <div class="form">
-    <button>测试</button>
-    <button yxu-filter="test" class="yxu-btn-dl">测试</button>
-    <button yxu-filter="test1" class="yxu-btn-info">测试</button>
-    <button class="yxu-btn-success">测试</button>
-    <button class="yxu-btn-warn">测试</button>
-    <button class="yxu-btn-error">测试</button>
-    <button class="yxu-btn-error yxu-btn-circle">测试</button>
-    <input type="text">
+    <button class="dom">测试</button>
+    <button yxu-filter="test" class="dom yxu-btn-dl">测试</button>
+    <button yxu-filter="test1" class="dom yxu-btn-info">测试</button>
+    <button class="dom yxu-btn-success">测试</button>
+    <button class="dom yxu-btn-warn">测试</button>
+    <button class="dom yxu-btn-error">测试</button>
+    <button class="dom yxu-btn-error yxu-btn-circle">测试</button>
+    <input class="dom" type="text">
+    <input id="test" name="test" class="dom" type="checkbox" value="测试value" title="测试" >
+    <input id="test1" name="test" class="dom" type="checkbox" value="测试value1" title="测试" >
+
 </div>
-<script src="./dist/main.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.js"></script>
+<script src="./js/yxui.js"></script>
 <script>
-  /*  //开启调试日志
+    //开启调试日志
     yxui.setDebug(true)
-    yxui.useModule(['form','ss'], () => {
+    yxui.useModule(['form', 'ss'], () => {
         let form = yxui.form;
-        form.render({el: '.form'})
-        form.on(function (data) {
-            console.log(data)
-        })
-    })*/
+        form.render({el: '.dom'})
+    })
 </script>
 </body>
 </html>

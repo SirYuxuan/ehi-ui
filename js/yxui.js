@@ -83,7 +83,7 @@ let util = {
          * warn级别日志
          * @param str 日志内容
          */
-        error(str) {
+        warn(str) {
             console.warn(`${this.VER}Warn: ${str}`)
         },
         /**
@@ -91,11 +91,40 @@ let util = {
          * @param str 日志内容
          */
         debug(str) {
-            if(util.DEBUG){
+            if (util.DEBUG) {
                 console.info(`${this.VER}Debug: ${str}`)
             }
         }
+    },
+    $(el) {
+        //TODO 这里需要处理下dom,方便下面方法操作
+        let dom = el
+        return {
+            addClass(className) {
+                let classList = dom.classList
+                if (!classList.contains(className)) {
+                    classList.add(className)
+                }
+            },
+            removeClass(className) {
+                let classList = dom.classList
+                if (classList.contains(className)) {
+                    classList.remove(className)
+                }
+            },
+            hasClass(className){
+                return dom.classList.contains(className)
+            }
+        }
+    },
+    guid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0,
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
     }
+
 }
 /**
  * YxUI 核心对象
@@ -105,7 +134,7 @@ window.yxui = {
      * 设置debug模式
      * @param debug 是否开启debug
      */
-    setDebug(debug){
+    setDebug(debug) {
         util.DEBUG = debug
     },
     /**
