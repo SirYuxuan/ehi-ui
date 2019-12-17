@@ -1,0 +1,25 @@
+{
+  "name": "yxui",
+  "version": "1.0.0",
+  "description": "YxUI 一套简洁好用的前端UI框架",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack  --watch --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/siryuxuan/YxUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.3.2",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.0.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.3",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
