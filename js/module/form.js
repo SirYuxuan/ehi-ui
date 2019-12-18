@@ -14,11 +14,10 @@ window.form = {
             if (nodeName === 'DIV' || nodeName === 'FORM') {
                 this.renderTag(tmpDom, 'button', 'yxu-btn')
                 this.renderTag(tmpDom, 'input', 'yxu-input')
+                this.renderTag(tmpDom, 'select')
             } else {
                 let className = this.renderMap[nodeName]
-                if (className) {
-                    this.renderDOM(tmpDom, className)
-                }
+                this.renderDOM(tmpDom, className)
             }
         }
     },
@@ -32,6 +31,8 @@ window.form = {
         let nodeName = dom.nodeName
         if (nodeName === 'BUTTON') {
             util.$(dom).addClass(className)
+        } else if (nodeName === 'SELECT') {
+            this.renderSelect(dom)
         } else if (nodeName === 'INPUT') {
             let type = dom.getAttribute("type").toUpperCase()
             if (type === 'TEXT') {
@@ -74,6 +75,52 @@ window.form = {
             }
         })
     },
+    renderSelect(dom) {
+        util.log.debug('开始渲染Select')
+        //隐藏源dom
+        dom.style.display = 'none'
+        let id = dom.getAttribute('id') || `yxu-select-id-${util.guid()}`
+        dom.setAttribute('id', `yxu-checkbox-source-id-${id}`)
+        let options = dom.querySelectorAll('option')
+        let llHtml = ''
+        for (let i = 0; i < options.length; i++) {
+            llHtml += `<li class="yxu-select-item ${options[i].value === ''?'yxu-select-default':''}" yxu-value="${options[i].value}">${options[i].innerText}</li>`
+        }
+        let html = ` <div id="${id}" class="yxu-select" style="width: 200px">
+        <div class="yxu-select-selection">
+            <span class="yxu-select-placeholder">请选择</span>
+            <i class="yxu-select-arrow yxu-icon iconfont yxu-icon-LC_icon_down_fill"></i>
+        </div>
+        <div class="yxu-select-dropdown">
+            <ul class="yxu-select-dropdown-list">
+              ${llHtml}
+            </ul>
+        </div>
+    </div>`
+        dom.insertAdjacentHTML('afterend', html)
+        //lambda 会改变this指向,这里不能使用
+        document.querySelector(`#${id}`).addEventListener('click', function () {
+            let hasClass = util.$(this).hasClass('yxu-select-visible')
+            if (hasClass) {
+                util.$(this).removeClass('yxu-select-visible')
+            } else {
+                util.$(this).addClass('yxu-select-visible')
+            }
+        })
+        document.querySelector(`#${id}`).querySelectorAll('.yxu-select-item').forEach(item => {
+            item.addEventListener('click', function () {
+                let text = this.innerText
+                let value = this.getAttribute('yxu-value')
+                let textDom = this.parentNode.parentNode.parentNode.querySelector('.yxu-select-placeholder')
+                textDom.innerHTML = text
+                if (value) {
+                    util.$(textDom).addClass('yxu-select-active')
+                } else {
+                    util.$(textDom).removeClass('yxu-select-active')
+                }
+            })
+        })
+    },
     checkbox(id) {
         return {
             setChecked(checked) {
@@ -104,7 +151,7 @@ window.form = {
                     return ''
                 }
             },
-            getNameVal(name,split) {
+            getNameVal(name, split) {
                 split = split || ','
                 let dom = document.querySelectorAll(`[yxu-name=${name}]`)
                 let result = ''
